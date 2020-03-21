@@ -30,7 +30,7 @@ The following fields are returned if they exists:
 ## Example
 
 ```js
-const { getCopyright, getData } = require('./src/risklayerDoc');
+const { getCopyright, getData } = require('covid19-risklayer-data');
 
 (async () => {
 	const coyright = getCopyright();
