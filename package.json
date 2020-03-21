@@ -1,0 +1,30 @@
+{
+  "name": "covid19-risklayer-data",
+  "version": "0.0.1",
+  "description": "load covis-19 case-data from a risklayer source",
+  "main": "src/risklayerDoc.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojoaxel/covid19-risklayer-data.git"
+  },
+  "keywords": [
+    "corona",
+    "covid-19",
+    "data"
+  ],
+  "author": "Alexander Wunschik <dev@wunschik.net>",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mojoaxel/covid19-risklayer-data/issues"
+  },
+  "homepage": "https://github.com/mojoaxel/covid19-risklayer-data#readme",
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "dotenv": "^8.2.0",
+    "fs-extra": "^9.0.0",
+    "google-spreadsheet": "^3.0.10"
+  }
+}
