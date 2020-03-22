@@ -1,6 +1,6 @@
 {
   "name": "covid19-risklayer-data",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "load covis-19 case-data from a risklayer source",
   "main": "src/risklayerDoc.js",
   "scripts": {
