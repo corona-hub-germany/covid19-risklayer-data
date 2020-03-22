@@ -19,7 +19,7 @@ function getCopyright() {
 async function getData(options = {}) {
 	options = deepmerge({
 		docId: '1wg-s4_Lz2Stil6spQEYFdZaBEp8nWW26gVyfHqvcl8s',
-		//dataSheetId: 'Haupt'
+		dataSheetId: 'Haupt',
 		startRowIndex: 5,
 		endRowIndex: 406,
 		startColumnIndex: 0,
@@ -50,10 +50,13 @@ async function getData(options = {}) {
 	await doc.loadInfo();
 
 	// use sheet title to find main-data sheet "Haupt"
-	var mainSheetIndex = 1;
+	var mainSheetIndex = 0;
 	var sheet = doc.sheetsByIndex[mainSheetIndex];
-	while ((sheet.title !== 'Haupt') && (sheet.index <= doc.sheetCount())) {
+	while ((sheet.title !== options.dataSheetId) && (sheet.index <= doc.sheetCount)) {
 		var sheet = doc.sheetsByIndex[++mainSheetIndex];
+	}
+	if (mainSheetIndex >= doc.sheetCount) {
+		throw new Error(`Sheet "Haupt" not found.`);
 	}
 
 	await sheet.loadCells({
