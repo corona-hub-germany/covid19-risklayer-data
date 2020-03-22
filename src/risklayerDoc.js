@@ -49,9 +49,12 @@ async function getData(options = {}) {
 	// loads document properties and worksheets
 	await doc.loadInfo();
 
-	// use first sheet
-	// TODO: use sheet title to find main-data sheet "Haupt"
-	var sheet = doc.sheetsByIndex[0];
+	// use sheet title to find main-data sheet "Haupt"
+	var mainSheetIndex = 1;
+	var sheet = doc.sheetsByIndex[mainSheetIndex];
+	while ((sheet.title !== 'Haupt') && (sheet.index <= doc.sheetCount())) {
+		var sheet = doc.sheetsByIndex[++mainSheetIndex];
+	}
 
 	await sheet.loadCells({
 		startRowIndex: options.startRowIndex,
